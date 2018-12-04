@@ -6,7 +6,7 @@
 
 
 
-typedef enum {DEBUG, INFO, WARNING, ERROR, NONE}  LogLevel;
+typedef enum {L_DEBUG, L_INFO, L_WARNING, L_ERROR, L_NONE}  LogLevel;
 
 
 
@@ -20,7 +20,7 @@ void l_debug( char *format, ...);
 void l_info( char *format, ...);
 void l_warning( char *format, ...);
 void l_error( char *format, ...);
-void l_log(LogLevel stringLogLevel,  char *format, va_list args);
+void l_out(LogLevel stringLogLevel,  char *format, va_list args);
 
 
 
