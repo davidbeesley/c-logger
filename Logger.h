@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #ifndef LOGGER_H_
 #define LOGGER_H_
@@ -27,8 +28,13 @@ void l_out(LogLevel stringLogLevel,  char *format, va_list args);
 void l_print( char *format, ...);
 void l_printLine( char *format, ...);
 
-
-
+// Testing functions
+bool l_test(bool passed, char * message);
+bool l_testInt(long actual, long expected, char * message);
+bool l_testHex(long actual, long expected, char * message);
+bool l_testBits(long actual, long expected, char * message);
+bool l_testFloat(double actual, double expected, char * message);
+bool l_testString(char * actual, char * expected, char * message);
 LogLevel logLevel;
 
 
