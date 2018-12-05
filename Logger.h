@@ -23,8 +23,6 @@ void l_error( char *format, ...);
 void l_out(LogLevel stringLogLevel,  char *format, va_list args);
 
 
-
-
 // Output to stdout and keep record in log
 void l_print( char *format, ...);
 void l_printLine( char *format, ...);

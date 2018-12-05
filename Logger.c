@@ -6,10 +6,10 @@
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m" // Error
 #define KGRN  "\x1B[32m" // Passed
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m" // Debug
+#define KYEL  "\x1B[33m" // Warning
+#define KBLU  "\x1B[34m"
 #define KMAG  "\x1B[35m" // Info
-#define KCYN  "\x1B[36m" // Warning
+#define KCYN  "\x1B[36m" // Debug
 #define KWHT  "\x1B[37m"
 
 /* LogLevel shortcuts */
@@ -45,7 +45,8 @@ void l_out(LogLevel stringLogLevel, char *format, va_list args){
 void l_debug( char *format, ...){
 	va_list args;
 	va_start(args, format);
-	printf(KBLU);
+	printf(KCYN);
+	printf("[DEBUG]   ");
 	l_out(L_DEBUG,format, args);
 	printf(KNRM);
 
@@ -55,22 +56,30 @@ void l_debug( char *format, ...){
 void l_info( char *format, ...){
 	va_list args;
 	va_start(args, format);
+	printf(KMAG);
+	printf("[INFO]    ");
 	l_out(L_INFO,format, args);
+	printf(KNRM);
 	va_end(args);
 }
 
 void l_warning( char *format, ...){
 	va_list args;
 	va_start(args, format);
-
+	printf(KYEL);
+	printf("[WARNING] ");
 	l_out(L_WARNING,format, args);
+	printf(KNRM);
 	va_end(args);
 }
 
 void l_error( char *format, ...){
 	va_list args;
 	va_start(args, format);
+	printf(KRED);
+	printf("[ERROR]   ");
 	l_out(L_ERROR,format, args);
+	printf(KNRM);
 	va_end(args);
 }
 
