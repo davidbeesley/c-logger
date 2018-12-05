@@ -12,6 +12,7 @@
 #define KCYN  "\x1B[36m" // Debug
 #define KWHT  "\x1B[37m"
 
+LogLevel logLevel = L_WARNING;
 
 void l_setLogLevel(LogLevel newLogLevel){
 	logLevel = newLogLevel;
@@ -20,55 +21,65 @@ void l_setLogLevel(LogLevel newLogLevel){
 
 /* Printing Functions */
 
-void l_out(LogLevel stringLogLevel, char *format, va_list args){
+void l_out(char *format, va_list args){
 
-	if (stringLogLevel >= logLevel) {
-		vprintf(format, args);
-		printf("\n");
-	}
+	vprintf(format, args);
+	printf("\n");
+
 
 }
 
 
 void l_debug( char *format, ...){
-	va_list args;
-	va_start(args, format);
-	printf(KCYN);
-	printf("[DEBUG]   ");
-	l_out(L_DEBUG,format, args);
-	printf(KNRM);
+	if (logLevel <= L_DEBUG) {
+		va_list args;
+		va_start(args, format);
+		printf(KCYN);
+		printf("[DEBUG]   ");
+		l_out(format, args);
+		printf(KNRM);
 
-	va_end(args);
+		va_end(args);
+	}
 }
 
 void l_info( char *format, ...){
-	va_list args;
-	va_start(args, format);
-	printf(KMAG);
-	printf("[INFO]    ");
-	l_out(L_INFO,format, args);
-	printf(KNRM);
-	va_end(args);
+	if (logLevel <= L_INFO) {
+
+		va_list args;
+		va_start(args, format);
+		printf(KMAG);
+		printf("[INFO]    ");
+		l_out(format, args);
+		printf(KNRM);
+		va_end(args);
+	}
 }
 
 void l_warning( char *format, ...){
-	va_list args;
-	va_start(args, format);
-	printf(KYEL);
-	printf("[WARNING] ");
-	l_out(L_WARNING,format, args);
-	printf(KNRM);
-	va_end(args);
+	if (logLevel <= L_WARNING) {
+
+		va_list args;
+		va_start(args, format);
+		printf(KYEL);
+		printf("[WARNING] ");
+		l_out(format, args);
+		printf(KNRM);
+		va_end(args);
+	}
 }
 
 void l_error( char *format, ...){
-	va_list args;
-	va_start(args, format);
-	printf(KRED);
-	printf("[ERROR]   ");
-	l_out(L_ERROR,format, args);
-	printf(KNRM);
-	va_end(args);
+	if (logLevel <= L_ERROR) {
+
+		va_list args;
+		va_start(args, format);
+		printf(KRED);
+		printf("[ERROR]   ");
+		l_out(format, args);
+		printf(KNRM);
+		va_end(args);
+	}
 }
 
 void l_print( char *format, ...){
@@ -82,7 +93,7 @@ void l_print( char *format, ...){
 	va_end(args);
 }
 
-void l_printLine( char *format, ...){
+void l_println( char *format, ...){
 
 
 	va_list args;
