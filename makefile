@@ -1,4 +1,4 @@
-CXXFLAGS= -std=c11 -Wall -pedantic -g
+CXXFLAGS= -Wall -pedantic -g
 CHEADERS = Logger.h
 CXXOBJS= Logger.o
 

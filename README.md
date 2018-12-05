@@ -1,7 +1,7 @@
 # c-logger
 Simple logger and test package for debugging c projects.
 
-## One way to include in your project
+## Easest way to include in your project
 ```
 wget https://raw.githubusercontent.com/davidbeesley/c-logger/master/Logger.c
 wget https://raw.githubusercontent.com/davidbeesley/c-logger/master/Logger.h
