@@ -2,9 +2,10 @@
 Simple logger and test package for debugging c projects.
 
 ## One way to include in your project
+```bash
 wget https://raw.githubusercontent.com/davidbeesley/c-logger/master/Logger.c
 wget https://raw.githubusercontent.com/davidbeesley/c-logger/master/Logger.h
-
+```
 ## Usage
 
 ### Logging functions
