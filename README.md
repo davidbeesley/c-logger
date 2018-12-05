@@ -10,7 +10,10 @@ wget https://raw.githubusercontent.com/davidbeesley/c-logger/master/Logger.h
 
 ### Logging functions
 logging functions take same format as printf and automatically print a new line.
+
 set logging level with `l_setLogLevel`
+
+output uses terminal colors, so it won't look very good using a program like less (unless you use the -R flag)
 ```c
 
 // Possible logging levels
